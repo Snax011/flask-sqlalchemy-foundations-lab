@@ -19,6 +19,21 @@ This lab simulates a realistic project where you'll:
 * Seed the database with real sample data.
 * Write API routes to query and return earthquake information as JSON.
 
+## API
+
+The implemented Flask API provides:
+
+* `GET /earthquakes/<id>` — returns the matching earthquake as JSON, or a
+  `404` response with a message when the ID is not found.
+* `GET /earthquakes/magnitude/<magnitude>` — returns a JSON object containing
+  the count and details of earthquakes whose magnitude is at least the
+  requested value. Results are ordered by ID, and an empty match returns a
+  `200` response with a count of zero.
+
+The database schema is managed with Flask-Migrate. From the `server` directory,
+run `flask db upgrade head` to apply migrations and `python seed.py` to load the
+sample earthquake records.
+
 You’ll apply the same problem-solving process used in professional development:
 
 * Define the problem and requirements.
@@ -334,4 +349,3 @@ Submit your GitHub Repo on Canvas to CodeGrade.
 CodeGrade will use the same test suite as the test suite included.
 
 Once all tests are passing, commit and push your work using `git` to submit to CodeGrade through Canvas.
-
